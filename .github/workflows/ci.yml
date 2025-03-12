@@ -22,7 +22,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=src tests/
+          pytest --cov-branch --cov-report=xml --cov=src tests/
         env:
           CI: true
 
