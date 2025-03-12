@@ -1,6 +1,7 @@
 import pytest
 from src.app import create_app
 
+
 @pytest.fixture
 def client():
     """
@@ -11,6 +12,7 @@ def client():
     with app.test_client() as client:
         yield client
 
+
 def test_home_page(client):
     """
     Test the home page endpoint.
@@ -19,6 +21,7 @@ def test_home_page(client):
     assert response.status_code == 200
     assert b"Welcome to the Portfolio CI/CD Application!" in response.data
 
+
 def test_health_check(client):
     """
     Test the health check endpoint.
@@ -26,6 +29,7 @@ def test_health_check(client):
     response = client.get('/health')
     assert response.status_code == 200
     assert b"healthy" in response.data
+
 
 def test_echo_endpoint(client):
     """
