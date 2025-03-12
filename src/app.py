@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from src.config import Config
 
+
 def create_app():
     """
     Create and configure the Flask application.
@@ -33,6 +34,7 @@ def create_app():
         })
 
     return app
+
 
 if __name__ == "__main__":
     # Create the app and run on the specified port from config.
