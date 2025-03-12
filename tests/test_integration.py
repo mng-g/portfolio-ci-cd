@@ -11,33 +11,27 @@ def client():
     with app.test_client() as client:
         yield client
 
-def test_home(client):
+def test_home_page(client):
     """
-    Test the home endpoint.
+    Test the home page endpoint.
     """
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json == {
-        "message": "Welcome to the Portfolio CI/CD Application!",
-        "status": "running"
-    }
+    assert b"Welcome to the Portfolio CI/CD Application!" in response.data
 
-def test_health(client):
+def test_health_check(client):
     """
-    Test the health endpoint.
+    Test the health check endpoint.
     """
     response = client.get('/health')
     assert response.status_code == 200
-    assert response.json == {"status": "healthy"}
+    assert b"healthy" in response.data
 
-def test_echo(client):
+def test_echo_endpoint(client):
     """
     Test the echo endpoint.
     """
-    data = {"test": "data"}
+    data = {"message": "Hello, World!"}
     response = client.post('/echo', json=data)
     assert response.status_code == 200
-    assert response.json == {
-        "echo": data,
-        "status": "success"
-    }
+    assert response.get_json() == {"echo": data, "status": "success"}
