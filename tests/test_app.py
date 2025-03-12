@@ -1,6 +1,7 @@
 import pytest
 from src.app import create_app
 
+
 @pytest.fixture
 def client():
     """
@@ -10,6 +11,7 @@ def client():
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
+
 
 def test_home(client):
     """
@@ -22,6 +24,7 @@ def test_home(client):
         "status": "running"
     }
 
+
 def test_health(client):
     """
     Test the health endpoint.
@@ -29,6 +32,7 @@ def test_health(client):
     response = client.get('/health')
     assert response.status_code == 200
     assert response.json == {"status": "healthy"}
+
 
 def test_echo(client):
     """
