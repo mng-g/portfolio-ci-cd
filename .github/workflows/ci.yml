@@ -22,12 +22,18 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov-branch --cov-report=xml --cov=src tests/
+          pytest --cov-branch --cov-report=xml --cov=src tests/ --junitxml=junit.xml -o junit_family=legacy
         env:
           CI: true
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
