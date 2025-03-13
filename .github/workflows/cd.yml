@@ -1,0 +1,13 @@
+name: CD
+
+on:
+    push:
+      branches:
+        - non_existent_branch
+
+jobs:
+  deploy:
+    if: false  # This makes sure the job never runs
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This will never run"
