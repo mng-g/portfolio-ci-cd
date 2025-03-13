@@ -1,18 +1,26 @@
 name: CI
 
+# TODO: on push on feature or bugfix branches and on pull requests on develop and main branches
 on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.8, 3.9, 3.10]
+    #runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          #python-version: '3.9'
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
