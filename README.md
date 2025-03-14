@@ -1,6 +1,6 @@
 # Portfolio CI/CD
 
-![CI Build](https://github.com/mng-g/portfolio-ci-cd/actions/workflows/ci.yml/badge.svg)[![codecov](https://codecov.io/gh/mng-g/portfolio-ci-cd/branch/main/graph/badge.svg)](https://codecov.io/gh/mng-g/portfolio-ci-cd)![Docker Image](https://github.com/mng-g/portfolio-ci-cd/actions/workflows/docker.yml/badge.svg)
+![CI Build](https://github.com/mng-g/portfolio-ci-cd/actions/workflows/ci.yml/badge.svg)[![codecov](https://codecov.io/gh/mng-g/portfolio-ci-cd/branch/main/graph/badge.svg)](https://codecov.io/gh/mng-g/portfolio-ci-cd)
 
 
 <img src="https://www.mabl.com/hubfs/CICDBlog.png" width="100">
