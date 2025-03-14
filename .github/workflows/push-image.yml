@@ -30,14 +30,14 @@ jobs:
           docker build -t ghcr.io/${{ github.repository }}/demo-flask-app:${{ env.VERSION }} .
           docker tag ghcr.io/${{ github.repository }}/demo-flask-app:${{ env.VERSION }} ghcr.io/${{ github.repository }}/demo-flask-app:latest
 
-          - name: Run Trivy Security Scan (Docker Image)
-          uses: aquasecurity/trivy-action@master
-          with:
-            scan-type: "image"
-            image-ref: "ghcr.io/${{ github.repository }}/demo-flask-app:latest"
-            ignore-unfixed: true
-            exit-code: 1
-            severity: "CRITICAL,HIGH"
+      - name: Run Trivy Security Scan (Docker Image)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "image"
+          image-ref: "ghcr.io/${{ github.repository }}/demo-flask-app:latest"
+          ignore-unfixed: true
+          exit-code: 1
+          severity: "CRITICAL,HIGH"
   
         # - name: Generate Trivy Report
         #   run: trivy fs --format template --template "@contrib/html.tpl" -o trivy-report.html .
