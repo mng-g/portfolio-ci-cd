@@ -1,0 +1,9 @@
+namespace: flask-app-staging
+
+replicaCount: 2
+
+image:
+  tag: "0.0.2-alpha.1"
+
+ingress:
+  host: staging.flask-app.local
