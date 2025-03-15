@@ -1,0 +1,18 @@
+app:
+  name: flask-app
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/mng-g/portfolio-ci-cd/flask-app
+  tag: latest
+  pullPolicy: Always
+
+containerPort: 5000
+
+service:
+  port: 80
+  type: ClusterIP
+
+ingress:
+  className: nginx
