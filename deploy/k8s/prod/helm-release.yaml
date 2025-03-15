@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flask-app-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/mng-g/portfolio-ci-cd.git"
+    path: deploy/helm
+    targetRevision: release-0.1
+    helm:
+      valueFiles:
+        - production-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flask-app-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
