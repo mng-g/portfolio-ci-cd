@@ -1,4 +1,4 @@
-namespace: production-portfolio-ci-cd
+namespace: flask-app-prod
 
 replicaCount: 3
 
