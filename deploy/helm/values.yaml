@@ -1,8 +1,6 @@
 app:
   name: flask-app
 
-replicaCount: 1
-
 image:
   repository: ghcr.io/mng-g/portfolio-ci-cd/flask-app
   tag: latest
