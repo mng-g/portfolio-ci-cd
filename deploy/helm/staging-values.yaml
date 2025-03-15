@@ -1,4 +1,4 @@
-namespace: staging-portfolio-ci-cd
+namespace: flask-app-staging
 
 replicaCount: 2
 
