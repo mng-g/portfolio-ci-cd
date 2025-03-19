@@ -8,7 +8,7 @@ spec:
   metrics:
     - name: smoke-test
       provider:
-        webhook:
+        web:
           url: "{{ .Values.smokeTestUrl }}"
           method: GET
           timeout: "10s"
