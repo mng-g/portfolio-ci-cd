@@ -11,6 +11,5 @@ spec:
         web:
           url: "{{ .Values.smokeTest.url }}"
           method: GET
-          timeout: "{{ .Values.smokeTest.timeout }}"
       successCondition: result.status == "healthy"
       failureCondition: result.status != "healthy"
