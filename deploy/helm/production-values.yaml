@@ -8,6 +8,4 @@ image:
 ingress:
   host: flask-app.local
 
-smokeTest:
-  url: "http://flask-app.local/health"
-  timeout: 10s
+smokeTestUrl: "http://flask-app.local/health"
