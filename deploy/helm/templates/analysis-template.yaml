@@ -9,7 +9,7 @@ spec:
     - name: smoke-test
       provider:
         webhook:
-          url: "{{args.service-url}}"
+          url: "{{ .Values.smokeTestUrl }}"
           method: GET
           timeout: "10s"
       successCondition: result.status == "healthy"
