@@ -9,7 +9,7 @@ spec:
     - name: smoke-test
       provider:
         web:
-          url: "{{ .Values.smokeTest.url }}"
+          url: "{{ .Values.smokeTestUrl }}"
           method: GET
       successCondition: result.status == "healthy"
       failureCondition: result.status != "healthy"
