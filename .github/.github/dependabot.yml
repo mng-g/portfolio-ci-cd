@@ -1,0 +1,35 @@
+version: 2
+updates:
+  # Python dependencies (requirements.txt)
+  - package-ecosystem: "pip"
+    directory: "/" # Root folder (change if your requirements.txt is elsewhere)
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+    ignore:
+      - dependency-name: "flask"
+        versions: ["2.2.0"] # Example: ignore specific versions
+    commit-message:
+      prefix: "[Dependabot]"
+      include: "scope"
+
+  # Docker dependencies (e.g., base images in Dockerfile)
+  - package-ecosystem: "docker"
+    directory: "/" # Root folder (change if Dockerfile is elsewhere)
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "docker"
+
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
