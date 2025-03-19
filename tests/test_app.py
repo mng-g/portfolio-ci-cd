@@ -20,7 +20,7 @@ def test_home(client):
     response = client.get('/')
     assert response.status_code == 200
     assert response.json == {
-        "message": "Welcome to the Portfolio CI/CD Application!",
+        "message": "Welcome to the Portfolio CI/CD Application! 🚀",
         "status": "running"
     }
 
