@@ -10,4 +10,4 @@ ingress:
 
 smokeTest:
   url: "http://flask-app.local/health"
-  timeout: "10s"  # Ensure it's a string
+  timeout: 10s
