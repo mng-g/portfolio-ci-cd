@@ -6,6 +6,8 @@ image:
   tag:  "0.0.1"
 
 ingress:
-    host: flask-app.local
+  host: flask-app.local
 
-smokeTestUrl: "http://flask-app.local/health"
+smokeTest:
+  url: "http://flask-app.local/health"
+  timeout: "10s"  # Ensure it's a string

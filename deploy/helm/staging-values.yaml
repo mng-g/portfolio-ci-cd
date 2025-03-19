@@ -8,4 +8,6 @@ image:
 ingress:
   host: staging.flask-app.local
 
-smokeTestUrl: "http://staging.flask-app.local/health"
+smokeTest:
+  url: "http://staging.flask-app.local/health"
+  timeout: "10s"  # Ensure it's a string
