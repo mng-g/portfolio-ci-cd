@@ -7,3 +7,5 @@ image:
 
 ingress:
     host: flask-app.local
+
+smokeTestUrl: "http://flask-app.local/health"

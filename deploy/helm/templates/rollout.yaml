@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: {{ .Values.app.name }}
   namespace: {{ .Values.namespace }}
@@ -25,6 +25,20 @@ spec:
               memory: "128Mi"
               cpu: "200m"
           ports:
-          - containerPort: {{ .Values.containerPort }}
+            - containerPort: {{ .Values.containerPort }}
       imagePullSecrets:
         - name: ghcr-secret
+  strategy:
+    canary:
+      steps:
+        - setWeight: 25
+        - pause: { duration: "30s" }
+        - setWeight: 50
+        - pause: { duration: "30s" }
+        - setWeight: 100
+      analysis:
+        templates:
+          - templateName: rollout-smoke-test
+        args:
+          - name: service-url
+            value: "{{ .Values.smokeTestUrl }}"

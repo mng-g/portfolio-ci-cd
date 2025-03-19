@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: rollout-smoke-test
+spec:
+  args:
+    - name: service-url
+  metrics:
+    - name: smoke-test
+      provider:
+        webhook:
+          url: "{{args.service-url}}"
+          method: GET
+          timeout: "10s"
+      successCondition: result.status == "healthy"
+      failureCondition: result.status != "healthy"
