@@ -8,7 +8,6 @@ In **Trunk-Based Development (TBD)**, developers **always work on `main`** and o
 - Developers **create short-lived feature branches** from `main` (e.g., `feature/new-login`).
 - They **merge back into `main` quickly** (sometimes daily or even multiple times per day).
 - `main` **is always deployable** (CI/CD ensures tests pass before merging).
-- There is **no long-lived `develop` branch**.
 
 ✅ **Example (Developer Workflow)**
 ```sh
@@ -44,6 +43,8 @@ Now, the `release-0.1` branch is used **only for bug fixes and final testing**.
 
 - **Developers continue working in `main` on future features.**
 - **The `release-0.1` branch gets only bug fixes related to the release.**
+- Developers **create short-lived bugfix branches** from `release-*` (e.g., `bugfix/1234`).
+- They **merge back into `release-*` as soon as the bug is fixed**
 
 ---
 
@@ -56,6 +57,7 @@ git checkout release-0.1
 git tag v0.1.0-alpha.1
 git push origin v0.1.0-alpha.1
 ```
+
 - If more bugs are fixed, create `v0.1.0-alpha.2`, `v0.1.0-beta.1`, etc.
 - Continue until the release is stable.
 

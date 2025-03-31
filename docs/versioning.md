@@ -10,7 +10,8 @@ We follow a **Trunk-Based Development (TBD)** approach where `main` is the centr
 
 ### **Feature & Bugfix Branches (`feature/*` and `bugfix/*`)**
 - Created for new features or bug fixes.
-- Merged into `main` once completed and reviewed.
+- `feature/*` Merged into `main` once completed and reviewed.
+- `bugfix/*` Merged into `release-*` once completed and reviewed.
 - **Deleted after merging** to keep the repository clean.
 
 ### **Release Branches (`release-X.Y`)**
@@ -19,11 +20,6 @@ We follow a **Trunk-Based Development (TBD)** approach where `main` is the centr
 - Example: `release-0.1`, `release-1.0`.
 - **Merged into `main` when the version is ready**.
 - **Deleted after merging** to avoid long-lived branches.
-
-### **Hotfix Branches (`hotfix/*`)**
-- Created when an **urgent fix** is required for a live release.
-- Based on the latest stable release tag.
-- Merged into both `main` and the active `release-*` branch (if applicable).
 
 ---
 
@@ -74,6 +70,6 @@ v1.0.0-alpha.1 → v1.0.0-alpha.2 → v1.0.0-beta.1 → v1.0.0-rc.1 → v1.0.0
 2. **Preparing a Release**: Create `release-*` branch from `main`.
 3. **Testing & Pre-Release**: Tag with `alpha`, `beta`, `rc` versions.
 4. **Stable Release**: Tag as `X.Y.Z` → Merge `release-*` into `main` → Delete `release-*`.
-5. **Bug Fixes**: Apply fixes in `release-*`, tag new PATCH versions, merge back into `main`.
+5. **Bug Fixes**: From `release-*`, create a `bugfix/*` branch → merge into `release-*`. Tag new PATCH versions, merge back into `main`.
 
 This ensures a **clean, efficient, and structured** release process. 🚀
