@@ -6,30 +6,37 @@
 
 <img src="https://www.mabl.com/hubfs/CICDBlog.png" width="100">
 
-This repository demonstrates an end-to-end CI/CD pipeline for a Python web application with a DevOps theme. The goal is to showcase best practices in continuous integration and continuous delivery using GitHub Actions and Docker.
+This repository demonstrates an end-to-end CI/CD pipeline for a simple Python web backend API. The goal is to showcase best practices in continuous integration and continuous delivery using GitHub Actions, Docker and Kubernetes.
 
 ## Overview
 
-- **Application:** A simple Python web app themed around DevOps.
-- **CI/CD Tools:** GitHub Actions for automated testing, building, and deployment.
+- **Application:** A simple Python app that prints a message and the status.
+- **CI/CD Tools:** GitHub Actions for automated testing, building, and pushing to docker images to ghcr. ArgoCD for deployment.
 - **Containerization:** Docker is used to package the application for consistency across environments.
-- **Notifications:** Future integrations (e.g., Slack or email) can be added to alert on pipeline events.
+- **???:** Kubernetes is used for ...
 
 ## Repository Structure
 
 ```
 portfolio-ci-cd/
-├── src/                   # Python application source code
-├── tests/                 # Unit and integration tests
-├── docs/                  # Documentation and pipeline diagrams
-├── scripts/               # Helper scripts (e.g., deploy, environment setup)
 ├── .github/
-│   ├── workflows/         # CI/CD GitHub Actions workflows (ci.yml, cd.yml)
-│   ├── ISSUE_TEMPLATE.md  # Issue template for new issues
-│   └── PULL_REQUEST_TEMPLATE.md  # Pull request template
-├── Dockerfile             # Dockerfile to containerize the application
-├── requirements.txt       # Python dependencies
-└── .gitignore             # Git ignore file for Python and Docker
+│   ├── workflows/               # CI/CD GitHub Actions workflows to build and push the docker image on ghcr
+│   ├── ISSUE_TEMPLATE           # Issue templates for new issues
+│   ├── dependabot.yml           # Dependabot automates dependency updates in GitHub repositories for security.
+│   └── PULL_REQUEST_TEMPLATE.md # Pull request template
+├── deploy
+│   ├── helm
+│   └── k8s
+├── Dockerfile                   # Dockerfile to containerize the application
+├── docs                         # Documentation and pipeline diagrams
+│   ├── development_workflow.md
+│   ├── pipeline_design.md
+│   ├── pipeline_diagram.md
+│   └── versioning.md
+├── requirements.txt             # Python dependencies
+├── src                          # Python application source code
+├── tests                        # Unit and integration tests
+└── .gitignore                   # Git ignore file
 ```
 
 ## Branching Strategy

@@ -5,17 +5,12 @@ flowchart TD
     C --> D[Run Unit & Integration Tests]
     D --> E{Tests Pass?}
     E -- Yes --> F[Build Docker Image]
-    E -- No --> G["Notify Failure (Slack/Email)"]
+    E -- No --> G["Notify Failure (Email)"]
     F --> H[Run Static Analysis & Security Scans]
     H --> I{Quality Checks Pass?}
     I -- Yes --> J[Package & Tag Artifact]
     I -- No --> G
-    J --> K[Deploy to Staging]
-    K --> L[Run Post-Deployment Tests]
-    L --> M{Staging OK?}
-    M -- Yes --> N[Deploy to Production]
-    M -- No --> G
-    N --> O["Notify Success (Slack/Email)"]
+    J --> K[Push to GHCR]
 ```
 
 ### How It Works
@@ -27,6 +22,5 @@ flowchart TD
 6. **Static Analysis & Security:** The built image undergoes static analysis and security scans.
 7. **Quality Gate:** A decision node checks whether quality metrics (e.g., code coverage, analysis results) meet the set standards.
 8. **Packaging:** Successful quality checks lead to packaging and artifact tagging.
-9. **Staging Deployment:** The artifact is deployed to a staging environment, where post-deployment tests run.
-10. **Production Deployment:** Upon successful staging tests, the artifact is deployed to production.
-11. **Notifications:** The pipeline notifies success or failure via Slack/Email.
+9. **Pushing:** The image will be pushed on ghcr
+10. **Notifications:** The pipeline notifies success or failure via Email.
