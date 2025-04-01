@@ -3,7 +3,7 @@ namespace: flask-app-prod
 replicaCount: 3
 
 image:
-  tag:  "0.0.1"
+  tag:  "1.0.0"
 
 ingress:
   host: flask-app.local
