@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/mng-g/portfolio-ci-cd.git"
     path: deploy/helm
-    targetRevision: release-0.1
+    targetRevision: release-1.0
     helm:
       valueFiles:
         - production-values.yaml
