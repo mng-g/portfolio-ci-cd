@@ -97,11 +97,16 @@ Deployment can be managed using **[devops-ready-cluster](https://github.com/mng-
 
 4. **Deploy the application**:  
    ```bash
+   # ArgoCD rollout are required
+   helm repo add argo https://argoproj.github.io/argo-helm
+   helm repo update
+   helm upgrade --install argo-rollouts argo/argo-rollouts -n argocd --create-namespace
+
    kubectl apply -f deploy/k8s/staging
    kubectl apply -f deploy/k8s/prod
    ```
 
-5. **Create a secret for pulling the image**:  
+5. **Create a secret for pulling the image (REQUIRED ONLY IF THE IMAGE IS PRIVATE)**:  
    ```bash
    kubectl create secret docker-registry ghcr-secret \
      --docker-server=ghcr.io \
@@ -114,7 +119,7 @@ Deployment can be managed using **[devops-ready-cluster](https://github.com/mng-
      --docker-username=mng-g \
      --docker-password=<GH_PAT> \
      --docker-email=mingazzini.michael@gmail.com -n flask-app-prod
-   ```<ingress-controller-IP>
+   ```
 
 6. **Update DNS or `/etc/hosts`**:  
    ```
