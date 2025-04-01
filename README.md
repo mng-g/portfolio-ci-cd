@@ -1,12 +1,6 @@
-Here’s your **updated README.md** with better structure, clarity, and corrections based on your notes:  
-
----
-
 # CI/CD Pipeline for Python Web API 🚀  
 
-![CI Build](https://github.com/mng-g/portfolio-ci-cd/actions/workflows/ci.yml/badge.svg)  
-[![codecov](https://codecov.io/gh/mng-g/portfolio-ci-cd/branch/main/graph/badge.svg)](https://codecov.io/gh/mng-g/portfolio-ci-cd)  
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/mng-g/portfolio-ci-cd)  
+![CI Build](https://github.com/mng-g/portfolio-ci-cd/actions/workflows/ci.yml/badge.svg)[![codecov](https://codecov.io/gh/mng-g/portfolio-ci-cd/branch/main/graph/badge.svg)](https://codecov.io/gh/mng-g/portfolio-ci-cd)![GitHub release (latest by date)](https://img.shields.io/github/v/release/mng-g/portfolio-ci-cd)  
 
 <img src="https://www.mabl.com/hubfs/CICDBlog.png" width="100">  
 
