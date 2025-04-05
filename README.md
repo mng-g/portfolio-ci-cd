@@ -139,6 +139,9 @@ Deployment can be managed using **[devops-ready-cluster](https://github.com/mng-
    ```
 3. **Install dependencies**:  
    ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install pytest
    pip install -r requirements.txt
    ```
 4. **Run tests**:  
